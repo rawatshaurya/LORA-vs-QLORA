@@ -1,0 +1,23 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env
+.venv/
+venv/
+
+# HuggingFace / models / cache
+.cache/
+huggingface/
+*.safetensors
+*.bin
+
+# Outputs (keep plots, ignore large artifacts)
+outputs/*/adapter/
+outputs/*/*.bin
+outputs/*/*.pt
+
+# OS
+.DS_Store
+Thumbs.db
