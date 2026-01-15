@@ -1,0 +1,22 @@
+model_name: "Qwen/Qwen2.5-1.5B-Instruct"
+adapter_dir: "outputs/csqa_qlora_run_1/adapter"
+
+# QLoRA inference
+use_4bit: true
+bnb_4bit_compute_dtype: "bfloat16"
+torch_dtype: "bfloat16"
+
+dataset_type: "csqa"
+dataset_name: "tau/commonsense_qa"
+dataset_config: null
+eval_split: "validation"
+
+max_eval_samples: 1221
+seed: 42
+
+max_seq_len: 1024
+gen_max_new_tokens: 32
+gen_temperature: 0.0
+gen_top_p: 1.0
+
+output_path: "outputs/csqa_qlora_run_1/results.json"

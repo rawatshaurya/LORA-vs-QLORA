@@ -1,0 +1,66 @@
+# =========================
+# Model (QLoRA)
+# =========================
+model_name: "Qwen/Qwen2.5-1.5B-Instruct"
+
+# 🔑 QLoRA ENABLED
+use_4bit: true
+bnb_4bit_compute_dtype: "float16"   # safest for reasoning
+torch_dtype: "float16"              # ignored for base (quantized), used for LoRA adapters
+
+# =========================
+# Dataset
+# =========================
+dataset_type: "csqa"
+dataset_name: "tau/commonsense_qa"
+dataset_config: null
+
+train_split: "train"
+eval_split: "validation"
+
+max_train_samples: 8000
+max_eval_samples: 1000
+seed: 42
+
+# =========================
+# Sequence / Generation
+# =========================
+max_seq_len: 1024
+
+gen_max_new_tokens: 64
+gen_temperature: 0.0
+gen_top_p: 1.0
+
+# =========================
+# Output
+# =========================
+output_dir: "outputs/csqa_qlora_run_1"
+
+# =========================
+# Training
+# =========================
+num_train_epochs: 1
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 16
+
+learning_rate: 1.0e-4
+weight_decay: 0.0
+warmup_ratio: 0.03
+lr_scheduler_type: "cosine"
+
+max_grad_norm: 0.0
+logging_steps: 10
+save_steps: 200
+save_total_limit: 2
+
+# =========================
+# LoRA Adapters (same as LoRA run)
+# =========================
+lora_r: 16
+lora_alpha: 32
+lora_dropout: 0.05
+
+# Attention projections only (best practice)
+target_modules:
+  - q_proj
+  - v_proj
