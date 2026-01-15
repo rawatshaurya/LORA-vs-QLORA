@@ -1,0 +1,22 @@
+{
+  "run_name": "csqa_run_1",
+  "output_dir": "outputs/csqa_run_1",
+  "dataset_type": "csqa",
+  "dataset_name": "tau/commonsense_qa",
+  "model_name": "Qwen/Qwen2.5-1.5B-Instruct",
+  "use_4bit": false,
+  "torch_dtype": "float16",
+  "lora_r": 16,
+  "lora_alpha": 32,
+  "target_modules": [
+    "q_proj",
+    "v_proj"
+  ],
+  "max_seq_len": 1024,
+  "train_samples": 8000,
+  "eval_samples_quick": 200,
+  "quick_eval_exact_match": 0.825,
+  "peak_vram_alloc_mb": 3869.6689453125,
+  "peak_vram_reserved_mb": 6546.0,
+  "train_time_sec": 1497.8029537200928
+}
